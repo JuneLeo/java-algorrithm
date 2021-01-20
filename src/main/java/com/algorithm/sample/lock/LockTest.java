@@ -1,4 +1,4 @@
-package com.algorithm.sample.base;
+package com.algorithm.sample.lock;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
