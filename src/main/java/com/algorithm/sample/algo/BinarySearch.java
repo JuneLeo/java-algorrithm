@@ -6,10 +6,19 @@ public class BinarySearch {
          * 二分查找
          */
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        binarySearch(array, 0);
+        binarySearch(array, 10);
     }
 
     /**
+     * 5 middle
+     * 1,2,3,4  left
+     * 6,7,8,9,10 right
+     *
+     * 2 middle
+     * 1 left
+     * 3,4 right
+     *
+     *
      * 二分查找
      *
      * @param array

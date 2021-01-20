@@ -12,8 +12,41 @@ public class RebuildTree {
         int[] preArray = {1, 2, 4, 7, 3, 5, 6, 8};
         int[] middleArray = {4, 7, 2, 1, 5, 3, 8, 6};
         Node node = new Node();
-        buildBinaryTree(preArray, middleArray, node);
+//        buildBinaryTree(preArray, middleArray, node);
+        buildBinaryTree2(preArray, middleArray, node);
+        System.out.println(node);
     }
+
+    private static void buildBinaryTree2(int[] perArray, int[] middleArray, Node root) {
+        if (perArray.length <= 0 || middleArray.length <= 0) {
+            return;
+        }
+        int value = perArray[0];
+        root.a = value;
+        int valueIndex = 0;
+        while (middleArray[valueIndex] != value) {
+            valueIndex++;
+        }
+
+
+        if (valueIndex > 0) {
+            int[] left = Arrays.copyOfRange(middleArray, 0, valueIndex);
+            int[] leftPer = Arrays.copyOfRange(perArray, 1, valueIndex + 1);
+            Node node = new Node();
+            root.per = node;
+            buildBinaryTree(leftPer, left, node);
+        }
+        if (valueIndex < middleArray.length - 1) {
+            int[] right = Arrays.copyOfRange(middleArray, valueIndex + 1, middleArray.length);
+            int[] rightPer = Arrays.copyOfRange(perArray, valueIndex + 1, middleArray.length);
+            Node node = new Node();
+            root.next = node;
+            buildBinaryTree(rightPer, right, node);
+        }
+
+
+    }
+
 
     private static void buildBinaryTree(int[] preArray, int[] middleArray, Node root) {
         if (preArray.length <= 0 || middleArray.length <= 0) {
