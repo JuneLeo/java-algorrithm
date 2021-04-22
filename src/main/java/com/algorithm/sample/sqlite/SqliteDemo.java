@@ -12,5 +12,7 @@ public class SqliteDemo {
         // 1.DEFERRED   unlock     读读
         // 2.MMEDIATE   reserved   写写
         // 3.EXCLUSIVE  exclusive  读写
+
+
     }
 }
