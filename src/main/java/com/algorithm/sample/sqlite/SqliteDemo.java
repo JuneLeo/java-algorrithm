@@ -14,5 +14,9 @@ public class SqliteDemo {
         // 3.EXCLUSIVE  exclusive  读写
 
 
+
+
+
+
     }
 }
