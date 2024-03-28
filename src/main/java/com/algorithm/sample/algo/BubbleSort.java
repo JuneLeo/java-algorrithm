@@ -7,13 +7,14 @@ public class BubbleSort {
          */
         int[] bubbleArray = ArrayCode.ARRAY;
         long startTime = System.currentTimeMillis();
-        bubbleSort(bubbleArray);
+        bubbleSort2(bubbleArray);
         System.out.println("bubbleArray time : " + (System.currentTimeMillis() - startTime));
         for (int i = 0; i < bubbleArray.length; i++) {
             System.out.print(bubbleArray[i] + ",");
         }
         System.out.println("--------");
     }
+
     /**
      * 冒泡排序
      *
@@ -32,4 +33,18 @@ public class BubbleSort {
         }
         return array;
     }
+
+
+    static void bubbleSort2(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int tmp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = tmp;
+                }
+            }
+        }
+    }
+
 }

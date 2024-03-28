@@ -6,7 +6,7 @@ public class BinarySearch {
          * 二分查找
          */
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        binarySearch(array, 10);
+        System.out.print(binarySearch(array, 11));
     }
 
     /**

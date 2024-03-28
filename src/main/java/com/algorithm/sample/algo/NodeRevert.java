@@ -16,13 +16,26 @@ public class NodeRevert {
         /**
          * 单链表反转
          */
-        temp = revertNode(root);
+        temp = revertNode2(root);
 
         while (temp != null) {
             System.out.print(temp.a + ",");
             temp = temp.next;
         }
     }
+
+
+    public static Node revertNode2(Node node) {
+        Node per = null;
+        while (node != null) {
+            Node next = node.next;
+            node.next = per;
+            per = node;
+            node = next;
+        }
+        return per;
+    }
+
 
     /**
      * 反转单链表

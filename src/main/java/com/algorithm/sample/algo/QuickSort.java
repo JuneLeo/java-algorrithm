@@ -30,25 +30,27 @@ public class QuickSort {
     }
 
     public static void quickSort2(int[] array, int start, int end) {
-        if (start < end) {
-            int key = array[start];
-            int i = start, j = end;
-            while (i < j) {
-                while (i < j && array[j] >= key) {
-                    j--;
-                }
-                array[i] = array[j];
-                while (i < j && array[i] <= key) {
-                    i++;
-                }
-                array[j] = array[i];
-            }
-            array[i] = key;
-            quickSort2(array, start, i - 1);
-            quickSort2(array, i + 1, end);
-        }
-    }
 
+        if (start > end) {
+            return;
+        }
+        int key = array[start];
+        int i = start, j = end;
+        while (i < j) {
+            while (i < j && array[j] > key) {
+                j--;
+            }
+            array[i] = array[j];
+            while (i < j && array[i] <= key) {
+                i++;
+            }
+            array[j] = array[i];
+        }
+        array[i] = key; // 将key赋值给 中间的值
+        quickSort2(array, start, i - 1);
+        quickSort2(array, i + 1, end);
+
+    }
 
     /**
      * 快排

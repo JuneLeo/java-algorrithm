@@ -26,34 +26,33 @@ public class MergeSort {
         System.out.println("--------");
     }
 
-
-    public static int[] mergeSort2(int[] array) {
+    static int[] mergeSort2(int[] array) {
         if (array.length < 2) {
             return array;
         }
         int middle = array.length / 2;
         int[] left = Arrays.copyOfRange(array, 0, middle);
         int[] right = Arrays.copyOfRange(array, middle, array.length);
-
         return merge2(mergeSort2(left), mergeSort2(right));
     }
 
     private static int[] merge2(int[] left, int[] right) {
         int[] array = new int[left.length + right.length];
-        int i = 0, j = 0, index = 0;
-        while (i < left.length && j < right.length) {
-            if (left[i] < right[j]) {
-                array[index++] = left[i++];
+
+        int index = 0, leftIndex = 0, rightIndex = 0;
+        while (leftIndex < left.length && rightIndex < right.length) {
+            if (left[leftIndex] < right[rightIndex]) {
+                array[index++] = left[leftIndex++];
             } else {
-                array[index++] = right[j++];
+                array[index++] = right[rightIndex++];
             }
         }
-        while (i < left.length) {
-            array[index++] = left[i++];
-        }
 
-        while (j < right.length) {
-            array[index++] = right[j++];
+        while (leftIndex < left.length) {
+            array[index++] = left[leftIndex++];
+        }
+        while (rightIndex < right.length) {
+            array[index++] = right[rightIndex++];
         }
         return array;
     }
